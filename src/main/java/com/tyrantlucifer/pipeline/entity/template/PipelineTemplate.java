@@ -1,8 +1,7 @@
 package com.tyrantlucifer.pipeline.entity.template;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.tyrantlucifer.pipeline.entity.template.output.TerminalOutputTemplate;
+import com.tyrantlucifer.pipeline.common.tools.ConvertTemplateFactory;
 import com.tyrantlucifer.pipeline.entity.template.runtime.StageTemplate;
 import lombok.Data;
 
@@ -40,13 +39,8 @@ public class PipelineTemplate {
      */
     private List<AbstractTemplate> taskTemplateList() {
         return templates.stream()
-                .map(task -> {
-                    String category = task.getString("category");
-                    if ("terminalOutput".equals(category)) {
-                        return JSON.parseObject(task.toJSONString(), TerminalOutputTemplate.class);
-                    }
-                    return null;
-                }).collect(Collectors.toList());
+                .map(ConvertTemplateFactory::convertTemplate)
+                .collect(Collectors.toList());
     }
 
     /**
