@@ -24,4 +24,14 @@ public class StageTemplate extends AbstractTemplate {
         this.name = start + "->" + end;
         this.category = "stage";
     }
+
+    @Override
+    public String toString() {
+        return "StageTemplate{" +
+                "name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", start='" + start + '\'' +
+                ", end='" + end + '\'' +
+                '}';
+    }
 }

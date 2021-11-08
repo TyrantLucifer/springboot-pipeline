@@ -4,14 +4,15 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.tyrantlucifer.pipeline.entity.template.output.TerminalOutputTemplate;
 import com.tyrantlucifer.pipeline.entity.template.runtime.StageTemplate;
+import lombok.Data;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public abstract class PipelineTemplate {
-
+@Data
+public class PipelineTemplate {
     /**
      * 任务id
      */

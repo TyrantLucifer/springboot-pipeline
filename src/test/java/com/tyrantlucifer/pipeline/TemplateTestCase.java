@@ -10,7 +10,7 @@ public class TemplateTestCase {
     @Test
     public void terminalTemplateTest() {
         TerminalOutputTemplate terminalOutputTemplate = new TerminalOutputTemplate();
-        terminalOutputTemplate.template = Optional.empty();
+        terminalOutputTemplate.template = null;
         terminalOutputTemplate.name = "test";
         terminalOutputTemplate.category = "terminalOutput";
         String s = JSON.toJSONString(terminalOutputTemplate);
